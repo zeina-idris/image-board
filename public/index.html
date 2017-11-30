@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Cookie|Dorsa|Poiret+One" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="style.css" rel="stylesheet">
+    <title>Image board</title>
+</head>
+<body>
+
+<main id="main"></main>
+
+<template id="images">
+    <div id="header">
+        <div class="layer"></div>
+        <a href="/#"><p class="scoop">SCOOP</p></a>
+        <a href="/#upload-image"> <i class="fa fa-cloud-upload" aria-hidden="true"></i></a>
+    </div>
+
+    <div id="main_container">
+        <img src="./images/photo-1429595518497-e7e060d84f7d.jpeg" id="bg-pic">
+        <h1 class="main_text">Unleash the creativty within</h1>
+    </div>
+    <div id="big_container">
+        {{#each images}}
+            <div id="container">
+                <div class="usernames"><p>{{this.username}}</p></div>
+                <a class="cursor" href="#image/{{this.id}}"><img class="imgs" src="https://s3.amazonaws.com/spicedling/{{this.image}}"></a>
+                <h4 class="imgTitle">{{this.title}}</h4>
+            </div>
+        {{/each}}
+    </div>
+     <button class="more">MORE</button>
+</template>
+
+
+<template id="uploads">
+    <div id="headerUpload">
+        <a href="/#/"> <img class="back_btn" src="./images/52211.png"></a>
+        <a href="/#upload-image"> <i class="fa fa-cloud-upload" aria-hidden="true"></i></a>
+    </div>
+
+    <div id="upload-bg">
+        <div class="layer1"></div>
+    <div class="upload_container">
+        <div id="form">
+            <h1> Upload a photo</h1>
+            <input type="text" name="username" placeholder="username">
+            <input type="text" name="title" placeholder="title">
+            <input type="file" name="file">
+            <button type="button" class="upload-button">Upload</button>
+        </div>
+    </div>
+</div>
+</template>
+
+
+<template id="image">
+<div id="biggest-C">
+    <div id="headerImage">
+        <a href="/#/"> <img class="back_btn" src="./images/52211.png"></a>
+        <a href="/#upload-image"> <i class="fa fa-cloud-upload" aria-hidden="true"></i></a>
+    </div>
+
+{{#image}}
+    <div id="S-container">
+        <div id="imageContainer">
+            <img id="single_image" src="https://s3.amazonaws.com/spicedling/{{this.image}}">
+            <h2 class="S-title">{{this.title}}</h2>
+        </div>
+            <div id="imageContainer2">
+                <div class="userimage">
+                    <div class="userinfo">
+                        <img class="photographer" src="./images/photographer-30423_960_720.png"><h1>{{this.username}}</h1>
+                    </div>
+                </div>
+
+
+                <div id="comment">
+                    <p>Comments</p>
+                {{#each ../comments}}
+                    <div class="CC"><img class="user" src="./images/account_friend_human_man_member_person_profile_user_users-256.png"><p class="cmnt"><span style="font-weight: 700">{{this.username}}: </span> {{this.comment}}</p></div>
+                {{/each}}
+            </div>
+            <p class="AC">Add a Comment</p>
+            <input type="text" name="username" placeholder="Name?">
+            <input type="text" name="comment" placeholder="Write a comment...">
+            <button type="button" class="cmnt_btn">Post</button>
+        </div>
+    </div>
+    {{/image}}
+</div>
+</template>
+
+
+<script src="/js/handlebars.min.js"></script>
+<script src="/js/jquery-3.1.1.min.js"></script>
+<script src="/js/underscore-min.js"></script>
+<script src="/js/backbone-min.js"></script>
+<script src="/js/script.js"></script>
+</body>
+</html>
