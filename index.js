@@ -33,7 +33,6 @@ var uploader = multer({
 });
 
 app.post('/upload', uploader.single('file'), (req, res) => {
-    console.log('inside upload route');
     if (req.file) {
         sendToS3(req.file)
         .then(() => {
@@ -69,7 +68,6 @@ app.get('/home', (req, res) => {
 })
 
 app.get('/image/:id', (req, res) => {
-    console.log('here in image id');
     const qImage = `SELECT image, username, title, description FROM images WHERE id = $1`
     const qComments = `SELECT username, comment FROM comments WHERE image_id = $1`
     const params = [req.params.id]
