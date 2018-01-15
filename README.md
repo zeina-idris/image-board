@@ -18,4 +18,8 @@ An image board where photographers can post their photographs, Features include 
 
 * Users can click on an image card in the home screen and enlarge the image. There is also a comment section where users can leave a comment for others which will be stored in the database.
 
-* Users can also upload an image
+<img src='public/imageboard-2.gif'>
+
+* Users can also upload an image that gets uploaded to the top of the homepage
+
+<img src='public/imageboard-3.gif'>
